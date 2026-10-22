@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Alex Smith · Cybersecurity & IT Security · Interactive Resume</title>
+  <meta name="description" content="Alex Smith: SOC Analyst (Tier 1), IT Security and Identity & Access Management candidate. Drive around a 3D island to explore the resume, or view the simple version." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <script type="module" crossorigin src="./assets/index-CqHcntQc.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C02vjbf8.css">
+</head>
+<body>
+  <a class="skip-link" href="#simple-resume" id="skip-link">Skip to simple resume</a>
+
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <!-- Loading screen -->
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-card">
+      <div class="loader-logo">🛡️</div>
+      <h1>ALEX SMITH</h1>
+      <p class="loader-sub">Cybersecurity · SOC · IT Security · IAM</p>
+      <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+      <p class="loader-status" id="loader-status">Booting secure environment… 0%</p>
+      <div class="loader-actions">
+        <button id="start-btn" class="btn btn-primary" disabled>▶ Start driving</button>
+        <button class="btn btn-ghost js-simple">📄 View simple resume</button>
+      </div>
+      <p class="loader-hint">Drive with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys · touch controls on mobile</p>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" hidden>
+    <div class="hud-top">
+      <div class="brand">ALEX SMITH <span>· interactive resume</span></div>
+      <div class="hud-actions">
+        <button class="btn btn-primary js-simple">📄 View simple resume</button>
+        <a class="btn btn-ghost" href="Alex_Smith_Resume_Security.pdf" download>⬇ PDF</a>
+      </div>
+    </div>
+    <nav class="zone-nav" aria-label="Jump to section">
+      <button data-zone="about">About</button>
+      <button data-zone="experience">Experience</button>
+      <button data-zone="education">Education</button>
+      <button data-zone="skills">Skills</button>
+      <button data-zone="contact">Contact</button>
+    </nav>
+    <div class="hint" id="hint">Drive to a glowing zone · <kbd>WASD</kbd>/<kbd>↑←↓→</kbd> · <kbd>R</kbd> reset</div>
+  </div>
+
+  <!-- Zone panel -->
+  <aside id="panel" aria-live="polite" aria-hidden="true">
+    <button class="panel-close" id="panel-close" aria-label="Close panel">×</button>
+    <h2 id="panel-title"></h2>
+    <div id="panel-body"></div>
+  </aside>
+
+  <!-- Touch controls -->
+  <div id="touch" hidden>
+    <div class="touch-left">
+      <button data-key="left" aria-label="Steer left">◀</button>
+      <button data-key="right" aria-label="Steer right">▶</button>
+    </div>
+    <div class="touch-right">
+      <button data-key="forward" aria-label="Accelerate">▲</button>
+      <button data-key="backward" aria-label="Brake / reverse">▼</button>
+    </div>
+  </div>
+
+  <!-- Plain HTML resume -->
+  <main id="simple-resume" hidden tabindex="-1">
+    <div class="sr-bar">
+      <button class="btn btn-primary js-3d">🚗 Back to 3D world</button>
+      <button class="btn btn-ghost" onclick="window.print()">🖨 Print</button>
+    </div>
+    <div class="sr-content" id="sr-content"></div>
+  </main>
+
+  <noscript><p style="padding:2rem;font-family:sans-serif">This interactive resume needs JavaScript. <a href="Alex_Smith_Resume_Security.pdf">Download the PDF resume</a>.</p></noscript>
+</body>
+</html>
