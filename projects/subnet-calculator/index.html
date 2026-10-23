@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subnet &amp; VLAN Planner · Alex Smith</title>
+  <meta name="description" content="IPv4 subnet calculator and VLSM/VLAN address planner with Cisco-style config output." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'none'" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="../assets/projects.css" />
+  <style>
+    .kv{display:grid;grid-template-columns:170px 1fr;gap:4px 12px;font-size:14px}
+    .kv dt{font-weight:700;color:#4a4870}.kv dd{margin:0;font-family:ui-monospace,monospace}
+    .bin{font-size:12px;color:#555;word-break:break-all}
+    .bin .n{color:#3b2fb0;font-weight:700}
+    .err{color:var(--bad);font-weight:700}
+    #vlans input{padding:6px 8px;font-size:13.5px}
+    #vlans td{vertical-align:middle}
+    .usage{display:flex;height:22px;border:2px solid var(--ink);border-radius:8px;overflow:hidden;margin:8px 0}
+    .usage div{height:100%;border-right:1px solid #fff}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../">ALEX SMITH <small>· projects</small></a>
+    <nav>
+      <a class="pill" href="../">All projects</a>
+      <a class="pill" href="../code.html?f=subnet-calculator/subnet.js">View code</a>
+      <a class="pill primary" href="../../">🚗 Back to 3D resume</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>🌐 Subnet &amp; VLAN Planner</h1>
+      <p>An IPv4 calculator for the everyday networking questions (network, broadcast, mask, wildcard, usable range) plus a VLSM planner that carves one address block into right-sized subnets for each VLAN and outputs a ready-to-review switch config.</p>
+      <ul class="tags"><li>JavaScript</li><li>TCP/IP</li><li>VLSM / CIDR</li><li>VLANs</li><li>Cisco IOS</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>Subnet calculator</h2>
+      <label for="cidr">IP address with prefix or mask</label>
+      <input id="cidr" type="text" value="192.168.10.77/26" spellcheck="false" autocomplete="off" />
+      <p class="mono" style="font-size:12.5px;margin:6px 0 0;color:#666">Examples: 10.1.2.3/20 · 172.16.5.9 255.255.255.0 · 203.0.113.8/31</p>
+      <div id="calc-out" style="margin-top:14px"></div>
+    </section>
+
+    <section class="card">
+      <h2>VLSM / VLAN planner</h2>
+      <div class="row">
+        <label for="base" style="min-width:110px">Address block</label>
+        <input id="base" type="text" value="10.20.0.0/22" spellcheck="false" style="max-width:220px" />
+        <button class="btn ghost" id="add" type="button">+ Add VLAN</button>
+        <button class="btn" id="plan" type="button">Plan subnets</button>
+      </div>
+      <div class="table-scroll" style="max-height:none;margin-top:12px">
+        <table><thead><tr><th style="width:90px">VLAN ID</th><th>Name</th><th style="width:130px">Hosts needed</th><th style="width:40px"></th></tr></thead><tbody id="vlans"></tbody></table>
+      </div>
+      <div id="plan-out" style="margin-top:14px"></div>
+    </section>
+  </main>
+  <footer class="foot">Built by Alex Smith · <a href="https://callmemrvirtuoso.github.io/">CallMeMrVirtuoso.github.io</a> · Runs entirely in your browser.</footer>
+  <script src="subnet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

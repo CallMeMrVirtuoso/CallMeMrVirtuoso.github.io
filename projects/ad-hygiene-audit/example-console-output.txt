@@ -1,0 +1,27 @@
+# EXAMPLE OUTPUT: produced by Test-WithMockData.ps1 against FICTIONAL mock accounts
+# (PowerShell 7.4, no real Active Directory involved). Dates are relative to the run date.
+
+AD account hygiene audit
+  Accounts scanned : 11
+  Findings         : 8 across 7 account(s)
+
+
+Check            Count
+-----            -----
+PwdNeverExpires      2
+Stale                2
+DisabledInGroups     1
+NeverLoggedOn        1
+OldPassword          1
+PwdNotRequired       1
+
+
+Severity Check          SamAccountName Privileged Detail
+-------- -----          -------------- ---------- ------
+High     PwdNotRequired temp.kiosk          False PASSWD_NOTREQD flag is set (a
+                                                  ccount may have an empty pass
+                                                  word)
+High     Stale          it.admin2            True No logon for 130 days
+
+Full results: /tmp/adhygiene-test.csv
+PASS  8 findings as expected (privileged account escalated to High). CSV: /tmp/adhygiene-test.csv

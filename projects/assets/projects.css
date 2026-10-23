@@ -1,0 +1,55 @@
+/* Shared styles for Alex Smith's portfolio project pages (matches the 3D resume palette). */
+:root{--ink:#1d1b3a;--paper:#fffaf2;--bg:#f4f6fb;--accent:#ff5a5f;--cyan:#00c2d1;--lime:#7ee081;--violet:#7b5cff;--yellow:#ffc93c;--ok:#1f9d55;--warn:#d97706;--bad:#d62839;--radius:16px;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:#3b2fb0}
+code,kbd,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 20px;background:linear-gradient(90deg,#2b2565,#1d1b3a);color:#fff}
+.topbar .brand{font-weight:900;letter-spacing:.06em;color:#fff;text-decoration:none}
+.topbar .brand small{font-weight:600;letter-spacing:0;opacity:.8}
+.topbar nav{display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:8px 14px;font:700 13px/1 inherit;font-family:inherit;text-decoration:none;cursor:pointer;background:#ffffffe6;color:var(--ink);box-shadow:0 3px 0 #0003}
+.pill:hover{background:#fff}
+.pill.primary{background:var(--accent);color:#fff;box-shadow:0 3px 0 #c43c41}
+.wrap{max-width:1040px;margin:0 auto;padding:24px 20px 60px}
+.hero h1{margin:8px 0 4px;font-size:clamp(26px,4vw,38px)}
+.hero p{margin:0 0 6px;color:#4a4870;max-width:760px}
+.tags{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700}
+.card{background:#fff;border:3px solid var(--ink);border-radius:var(--radius);padding:18px 20px;box-shadow:0 6px 0 #1d1b3a22;margin-top:18px}
+.card h2{margin:0 0 10px;font-size:19px}
+.card h3{margin:14px 0 6px;font-size:15px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.note{background:#fff8e1;border:2px dashed var(--yellow);border-radius:12px;padding:10px 14px;font-size:14px}
+.note.info{background:#e9fbfd;border-color:var(--cyan)}
+label{font-weight:700;font-size:14px}
+input[type=text],input[type=password],input[type=number],textarea,select{width:100%;font:15px ui-monospace,SFMono-Regular,Menlo,monospace;padding:10px 12px;border:2px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:180px;resize:vertical;font-size:12.5px}
+input:focus,textarea:focus,select:focus,.pill:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--violet);outline-offset:2px}
+button.btn{border:0;border-radius:999px;padding:10px 16px;font:700 14px inherit;font-family:inherit;cursor:pointer;background:var(--ink);color:#fff;box-shadow:0 3px 0 #0004}
+button.btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:none}
+button.btn:hover{filter:brightness(1.15)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.meter{height:14px;border-radius:99px;background:#e6e4f2;overflow:hidden;border:2px solid var(--ink)}
+.meter>div{height:100%;width:0;transition:width .25s,background .25s}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #e3e1ef;vertical-align:top}
+th{background:#f1effa;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.table-scroll{overflow:auto;max-height:520px;border:2px solid var(--ink);border-radius:12px}
+.badge{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:800;color:#fff;background:#6b7280;white-space:nowrap}
+.badge.high{background:var(--bad)}.badge.medium{background:var(--warn)}.badge.low{background:#2563eb}.badge.ok{background:var(--ok)}
+ul.checks{list-style:none;padding:0;margin:0}
+ul.checks li{padding:5px 0 5px 28px;position:relative;font-size:14.5px}
+ul.checks li::before{position:absolute;left:0;top:4px;font-size:15px}
+ul.checks li.pass::before{content:"✅"}ul.checks li.fail::before{content:"⚠️"}
+.stat{display:inline-block;min-width:120px;padding:10px 14px;border:2px solid var(--ink);border-radius:12px;background:#fff;margin:0 8px 8px 0}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12px;color:#555;text-transform:uppercase;letter-spacing:.04em}
+/* Code viewer + syntax highlighting (see highlight.js) */
+pre.code{margin:0;background:#0f1020;color:#e6e6f0;border-radius:12px;padding:16px;overflow:auto;font-size:13px;line-height:1.55;max-height:640px;counter-reset:ln}
+pre.code .ln{display:inline-block;width:3.2em;margin-left:-.4em;color:#5d5f80;user-select:none;text-align:right;padding-right:1em}
+.tok-com{color:#7f8aa8;font-style:italic}.tok-str{color:#a5e88a}.tok-kw{color:#ff8fb1;font-weight:600}.tok-num{color:#ffc93c}
+.tok-var{color:#7fdcff}.tok-fn{color:#c3a6ff}.tok-op{color:#ffb86b}.tok-type{color:#7ee0c8}
+footer.foot{max-width:1040px;margin:0 auto;padding:0 20px 40px;color:#666;font-size:13px}
+@media (max-width:640px){.topbar{padding:8px 12px}.wrap{padding:16px 12px 40px}.card{padding:14px}}

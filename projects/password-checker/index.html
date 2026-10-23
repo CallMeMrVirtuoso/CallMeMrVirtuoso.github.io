@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Strength &amp; Breach-Pattern Checker · Alex Smith</title>
+  <meta name="description" content="A client-side password strength checker that flags patterns attackers try first. No network calls; nothing leaves your browser." />
+  <!-- Defense in depth: this page is not allowed to make any network requests at all. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'none'" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="../assets/projects.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../">ALEX SMITH <small>· projects</small></a>
+    <nav>
+      <a class="pill" href="../">All projects</a>
+      <a class="pill" href="../code.html?f=password-checker/analyzer.js">View code</a>
+      <a class="pill primary" href="../../">🚗 Back to 3D resume</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>🔐 Password Strength &amp; Breach-Pattern Checker</h1>
+      <p>Type a password to see how quickly common cracking techniques would find it. The checker looks for the patterns that attacker wordlists and mangling rules try first: common passwords, dictionary words with leetspeak, Season+Year, keyboard walks, sequences, repeats, dates and personal info.</p>
+      <ul class="tags"><li>JavaScript</li><li>HTML/CSS</li><li>Content-Security-Policy</li><li>Password policy</li></ul>
+    </section>
+
+    <p class="note info" style="margin-top:16px">🛡️ <b>Private by design:</b> everything runs locally in your browser. The page's Content-Security-Policy blocks all network connections (<code>connect-src 'none'</code>), and nothing is stored. It does <b>not</b> query real breach databases; it flags breach-<i>style</i> patterns. Still, prefer testing a password that is <i>similar</i> to yours rather than a real one.</p>
+
+    <div class="grid2">
+      <section class="card">
+        <h2>Test a password</h2>
+        <label for="pw">Password</label>
+        <div class="row" style="flex-wrap:nowrap">
+          <input id="pw" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="e.g. Summer2024!" />
+          <button class="btn ghost" id="toggle" type="button" aria-pressed="false">Show</button>
+        </div>
+        <label for="personal" style="display:block;margin-top:12px">Optional: your name / username (checked for reuse)</label>
+        <input id="personal" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. alex, asmith" />
+
+        <div style="margin-top:16px">
+          <div class="row" style="justify-content:space-between"><b id="score-label">Start typing…</b><span class="mono" id="entropy"></span></div>
+          <div class="meter" aria-hidden="true"><div id="meter"></div></div>
+        </div>
+        <div id="times" class="times"></div>
+        <p id="policy" class="note" hidden>⚠️ This looks like the classic <b>Word + digits + symbol</b> pattern (e.g. <code>Summer2024!</code>). It satisfies many complexity rules, but cracking rule-sets try it within the first few guesses.</p>
+      </section>
+
+      <section class="card">
+        <h2>Checklist</h2>
+        <ul class="checks" id="checks"><li class="fail">Enter a password to begin</li></ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Patterns found</h2>
+      <p class="muted" style="margin-top:0">The cheapest explanation of the password an attacker could use. Tokens are masked unless "Show" is on.</p>
+      <div class="table-scroll" style="max-height:none"><table><thead><tr><th>Token</th><th>Pattern</th><th>Approx. guesses</th></tr></thead><tbody id="patterns"><tr><td colspan="3">None yet.</td></tr></tbody></table></div>
+    </section>
+
+    <div class="grid2">
+      <section class="card">
+        <h2>Generate a strong random password</h2>
+        <p style="margin-top:0">Uses <code>crypto.getRandomValues</code> with rejection sampling (no modulo bias).</p>
+        <div class="row">
+          <label for="len">Length</label><input id="len" type="number" min="12" max="64" value="20" style="width:90px" />
+          <button class="btn" id="gen" type="button">Generate</button>
+        </div>
+        <input id="generated" type="text" readonly style="margin-top:10px" aria-label="Generated password" />
+        <div class="row" style="margin-top:8px"><button class="btn ghost" id="copy" type="button">Copy</button><button class="btn ghost" id="test-gen" type="button">Test it</button><span id="copy-status" class="mono"></span></div>
+      </section>
+      <section class="card">
+        <h2>How the estimate works</h2>
+        <ul style="margin:0;padding-left:18px;font-size:14px">
+          <li>Each pattern gets a rough guess count (e.g. a dictionary word ≈ its rank × capitalization/leet variants).</li>
+          <li>Dynamic programming finds the cheapest mix of patterns + brute-forced characters covering the whole password.</li>
+          <li>Crack times assume an attacker searches half the space on average: <b>offline</b> against a fast, unsalted hash at 10 billion guesses/s, and <b>online</b> against a rate-limited login at 10 guesses/s.</li>
+          <li>Wordlists are small and illustrative, so treat results as an estimate, not a guarantee. Use a password manager and MFA.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="foot">Built by Alex Smith · <a href="https://callmemrvirtuoso.github.io/">CallMeMrVirtuoso.github.io</a> · Runs entirely in your browser.</footer>
+  <script src="analyzer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

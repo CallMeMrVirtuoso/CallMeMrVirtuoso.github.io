@@ -3,11 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Alex Smith · Cybersecurity & IT Security · Interactive Resume</title>
+  <title>Alex Smith · Cybersecurity & IT Security · Interactive Resume | CallMeMrVirtuoso.github.io</title>
   <meta name="description" content="Alex Smith: SOC Analyst (Tier 1), IT Security and Identity & Access Management candidate. Drive around a 3D island to explore the resume, or view the simple version." />
+  <link rel="canonical" href="https://callmemrvirtuoso.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CallMeMrVirtuoso.github.io" />
+  <meta property="og:title" content="Alex Smith · Cybersecurity & IT Security · Interactive Resume" />
+  <meta property="og:description" content="SOC Analyst (Tier 1), IT Security and IAM candidate. Drive a toy car around a 3D island to explore Alex's resume, or open the simple version." />
+  <meta property="og:url" content="https://callmemrvirtuoso.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Alex Smith · Cybersecurity & IT Security · Interactive Resume" />
+  <meta name="twitter:description" content="SOC Analyst (Tier 1), IT Security and IAM candidate. Explore the 3D interactive resume at CallMeMrVirtuoso.github.io." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
-  <script type="module" crossorigin src="./assets/index-CqHcntQc.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-C02vjbf8.css">
+  <script type="module" crossorigin src="./assets/index-B4Soxy9q.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CA6XR1-j.css">
 </head>
 <body>
   <a class="skip-link" href="#simple-resume" id="skip-link">Skip to simple resume</a>
@@ -33,10 +42,15 @@
   <!-- HUD -->
   <div id="hud" hidden>
     <div class="hud-top">
-      <div class="brand">ALEX SMITH <span>· interactive resume</span></div>
+      <div class="brand">
+        <div>ALEX SMITH <span>· interactive resume</span></div>
+        <a class="brand-url" href="https://callmemrvirtuoso.github.io/">🌐 CallMeMrVirtuoso.github.io</a>
+      </div>
       <div class="hud-actions">
         <button class="btn btn-primary js-simple">📄 View simple resume</button>
         <a class="btn btn-ghost" href="Alex_Smith_Resume_Security.pdf" download>⬇ PDF</a>
+        <button class="btn btn-ghost btn-icon" id="quality-btn" type="button" aria-label="Graphics quality" title="Graphics quality (Q)">✨ <span id="quality-label">High</span></button>
+        <button class="btn btn-ghost btn-icon" id="mute-btn" type="button" aria-pressed="false" aria-label="Mute music" title="Mute / unmute (M)">🔊</button>
       </div>
     </div>
     <nav class="zone-nav" aria-label="Jump to section">
@@ -44,9 +58,11 @@
       <button data-zone="experience">Experience</button>
       <button data-zone="education">Education</button>
       <button data-zone="skills">Skills</button>
+      <button data-zone="projects">Projects</button>
       <button data-zone="contact">Contact</button>
     </nav>
-    <div class="hint" id="hint">Drive to a glowing zone · <kbd>WASD</kbd>/<kbd>↑←↓→</kbd> · <kbd>R</kbd> reset</div>
+    <div class="packets" id="packets" aria-live="polite" title="Collect the glowing data packets around the island">📦 <span id="packet-count">0</span>/<span id="packet-total">12</span></div>
+    <div class="hint" id="hint">Drive to a glowing zone · <kbd>WASD</kbd>/<kbd>↑←↓→</kbd> · <kbd>R</kbd> reset · <kbd>M</kbd> mute</div>
   </div>
 
   <!-- Zone panel -->

@@ -1,0 +1,5 @@
+.times{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.times div{border:2px solid var(--ink);border-radius:12px;padding:8px 10px;background:#fbfaff}
+.times b{display:block;font-size:17px}
+.times span{font-size:12px;color:#555}
+.muted{color:#666;font-size:14px}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Source code · Alex Smith projects</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'none'" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="assets/projects.css" />
+  <style>
+    .files{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+    .files a{font:600 13px ui-monospace,monospace;padding:5px 10px;border-radius:8px;border:2px solid var(--ink);text-decoration:none;color:var(--ink);background:#fff}
+    .files a.active{background:var(--ink);color:#fff}
+    pre.code{max-height:none}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../">ALEX SMITH <small>· projects</small></a>
+    <nav>
+      <a class="pill" href="./">All projects</a>
+      <a class="pill" id="project-link" href="./">Open project</a>
+      <a class="pill primary" href="../">🚗 Back to 3D resume</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1 id="title">Source code</h1>
+      <p id="subtitle">Unminified source files, exactly as served by this site.</p>
+    </section>
+    <nav class="files" id="files" aria-label="Files in this project"></nav>
+    <div class="row" style="margin-bottom:10px"><a class="pill" id="download" href="#" download>⬇ Download file</a><span class="mono" id="meta"></span></div>
+    <pre class="code" id="code">Loading…</pre>
+  </main>
+  <footer class="foot">Built by Alex Smith · <a href="https://callmemrvirtuoso.github.io/">CallMeMrVirtuoso.github.io</a></footer>
+  <script src="assets/highlight.js"></script>
+  <script src="assets/code-viewer.js"></script>
+</body>
+</html>

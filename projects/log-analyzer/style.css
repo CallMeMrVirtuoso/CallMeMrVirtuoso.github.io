@@ -1,0 +1,20 @@
+.file-btn{display:inline-flex;align-items:center}
+details summary{cursor:pointer;margin:6px 0}
+.thresholds{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.thresholds label{font-weight:600;font-size:13px}
+.thresholds input{margin-top:4px}
+#chart{width:100%;display:block;border:2px solid var(--ink);border-radius:12px;background:#fbfaff}
+.legend{font-size:13px;color:#555}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin:0 4px 0 10px;vertical-align:-1px}
+.sw.fail{background:#d62839}.sw.ok{background:#22c55e}
+.badge.critical{background:#7f1d1d}
+.bar-row{display:grid;grid-template-columns:150px 1fr 48px;gap:8px;align-items:center;font-size:13px;margin:5px 0}
+.bar-row .bar{height:12px;border-radius:99px;background:#e6e4f2;overflow:hidden}
+.bar-row .bar div{height:100%;background:var(--violet)}
+.bar-row button{all:unset;cursor:pointer;font-family:ui-monospace,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#3b2fb0}
+.bar-row button:hover{text-decoration:underline}
+tr.sev-critical td{background:#fff1f2}
+#events td,#alerts td{font-size:12.5px}
+.muted{color:#666;font-size:14px;font-weight:500}
+label.btn{border-radius:999px;padding:9px 16px;font:700 14px inherit;font-family:inherit;cursor:pointer;background:#fff;color:var(--ink);border:2px solid var(--ink)}
+label.btn:focus-within{outline:3px solid var(--violet);outline-offset:2px}

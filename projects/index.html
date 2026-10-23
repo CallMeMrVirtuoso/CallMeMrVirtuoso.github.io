@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects · Alex Smith</title>
+  <meta name="description" content="Small security and IT tools built by Alex Smith: password checker, Windows log analyzer, AD hygiene audit, subnet planner." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; form-action 'none'" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="stylesheet" href="assets/projects.css" />
+  <style>
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:18px}
+    .projects .card{margin:0;display:flex;flex-direction:column}
+    .projects .card p{flex:1;font-size:14.5px;margin:0 0 10px}
+    .projects .icon{font-size:30px}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../">ALEX SMITH <small>· projects</small></a>
+    <nav><a class="pill primary" href="../">🚗 Back to 3D resume</a></nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>🧪 Project Lab</h1>
+      <p>Small, working tools around the work I do in IT support and security: identity hygiene, log triage, passwords and networking. Everything runs in the browser or as a read-only script, and all the source is viewable.</p>
+    </section>
+    <div class="projects">
+      <article class="card">
+        <div class="icon">🔐</div>
+        <h2>Password Strength &amp; Breach-Pattern Checker</h2>
+        <p>Estimates how fast a password falls to real cracking techniques (wordlists, leetspeak, Season+Year, keyboard walks) and generates strong random passwords. Fully offline: the page's CSP blocks all network requests.</p>
+        <ul class="tags"><li>JavaScript</li><li>CSP</li><li>Password policy</li></ul>
+        <div class="row" style="margin-top:12px"><a class="pill primary" href="password-checker/">▶ Live demo</a><a class="pill" href="code.html?f=password-checker/analyzer.js">View code</a></div>
+      </article>
+      <article class="card">
+        <div class="icon">🪵</div>
+        <h2>Windows Security Log Analyzer</h2>
+        <p>Loads 4625/4624/4740 logon events and flags brute force, password spraying, account enumeration, lockouts and successful logons after a burst of failures, mapped to MITRE ATT&amp;CK. Includes a PowerShell exporter and synthetic sample data.</p>
+        <ul class="tags"><li>JavaScript</li><li>Event logs</li><li>PowerShell</li><li>MITRE ATT&amp;CK</li></ul>
+        <div class="row" style="margin-top:12px"><a class="pill primary" href="log-analyzer/">▶ Live demo</a><a class="pill" href="code.html?f=log-analyzer/analyzer.js">View code</a></div>
+      </article>
+      <article class="card">
+        <div class="icon">🧹</div>
+        <h2>AD Account Hygiene Audit</h2>
+        <p>A read-only PowerShell script that finds stale, never-used, non-expiring, password-not-required and disabled-but-still-grouped accounts in Active Directory, with CSV output and a mock-data test.</p>
+        <ul class="tags"><li>PowerShell</li><li>Active Directory</li><li>IAM</li></ul>
+        <div class="row" style="margin-top:12px"><a class="pill primary" href="ad-hygiene-audit/">📄 Script &amp; example</a><a class="pill" href="code.html?f=ad-hygiene-audit/Invoke-ADHygieneAudit.ps1">View code</a></div>
+      </article>
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h2>Subnet &amp; VLAN Planner</h2>
+        <p>IPv4 subnet calculator plus a VLSM planner that splits an address block into right-sized subnets per VLAN and outputs a Cisco IOS-style config to review.</p>
+        <ul class="tags"><li>JavaScript</li><li>TCP/IP</li><li>VLANs</li></ul>
+        <div class="row" style="margin-top:12px"><a class="pill primary" href="subnet-calculator/">▶ Live demo</a><a class="pill" href="code.html?f=subnet-calculator/subnet.js">View code</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="foot">Built by Alex Smith · <a href="https://callmemrvirtuoso.github.io/">CallMeMrVirtuoso.github.io</a></footer>
+</body>
+</html>
