@@ -15,8 +15,8 @@
   <meta name="twitter:title" content="Alex Smith · Cybersecurity & IT Security · Interactive Resume" />
   <meta name="twitter:description" content="SOC Analyst (Tier 1), IT Security and IAM candidate. Explore the 3D interactive resume at CallMeMrVirtuoso.github.io." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
-  <script type="module" crossorigin src="./assets/index-Brca9LgT.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-cafJwqk5.css">
+  <script type="module" crossorigin src="./assets/index-CxBdiQGY.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CComGY_6.css">
 </head>
 <body>
   <a class="skip-link" href="#simple-resume" id="skip-link">Skip to simple resume</a>
@@ -38,7 +38,7 @@
         <button class="btn btn-recruiter js-simple" id="recruiter-btn" type="button">💼 Recruiter? Skip to resume</button>
       </div>
       <div id="loader-contact"></div>
-      <p class="loader-hint">Walk with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows · <kbd>Shift</kbd> run · <kbd>Space</kbd> jump · <kbd>E</kbd> interact<br/>On a phone: touch and drag anywhere to walk, drag further to run</p>
+      <p class="loader-hint"><span class="kb-only">Walk with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows · <kbd>Shift</kbd> run · <kbd>Space</kbd> jump · <kbd>E</kbd> interact</span><span class="touch-only">Touch and drag anywhere to walk, drag further to run · tap the round button to jump · tap the pop-up button to read, talk or drive</span></p>
     </div>
   </div>
 
@@ -57,14 +57,16 @@
       <button class="btn btn-ghost btn-round" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu" title="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
     <div class="packets" id="packets" aria-live="polite" title="Collect the glowing data packets around the island">📦 <span id="packet-count">0</span>/<span id="packet-total">12</span></div>
-    <div class="act-stats" id="act-stats" hidden><span id="fish-stat" hidden>🐟 <b id="fish-count">0</b></span><span id="goal-stat" hidden>⚽ <b id="goal-count">0</b></span></div>
+    <div class="act-stats" id="act-stats" hidden><span id="fish-stat" hidden>🐟 <b id="fish-count">0</b></span><span id="hoop-stat" hidden>🏀 <b id="hoop-count">0</b></span></div>
+    <div id="hoops-hud" class="hoops-hud" hidden><span id="hh-fire" class="hh-fire" hidden>🔥 ON FIRE!</span><span id="hh-clock" class="hh-clock" hidden>⏱ <b id="hh-clock-val">30.0</b>s · <b id="hh-clock-pts">0</b> pts</span></div>
+    <div id="shot-meter" class="fish-meter shot-meter" hidden><div class="fm-title" id="sm-title">Release in the green!</div><div class="fm-track"><i class="fm-zone" id="sm-zone"></i><i class="fm-needle" id="sm-needle"></i></div></div>
     <div id="fish-meter" class="fish-meter" hidden><div class="fm-title" id="fm-title">Fish on!</div><div class="fm-track"><i class="fm-zone" id="fm-zone"></i><i class="fm-needle" id="fm-needle"></i></div></div>
     <div id="fade" class="fade" aria-hidden="true"></div>
     <div class="hint" id="hint"><kbd>WASD</kbd> walk · <kbd>Shift</kbd> run · <kbd>Space</kbd> jump · <kbd>E</kbd> interact · <kbd>R</kbd> reset</div>
 
     <!-- Gardener dialogue -->
-    <div id="dialog" class="dialog" hidden role="dialog" aria-live="polite" aria-label="Gardener">
-      <div class="dialog-name">🌻 The gardener</div>
+    <div id="dialog" class="dialog" hidden role="dialog" aria-live="polite" aria-label="Sydney, the gardener">
+      <div class="dialog-name">🌻 Sydney</div>
       <p id="dialog-text"></p>
       <div id="dialog-choices" class="dialog-choices"></div>
       <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">×</button>
@@ -122,11 +124,13 @@
         </div>
         <h3>Controls</h3>
         <ul class="menu-help">
-          <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows: walk · <kbd>Shift</kbd>: run · <kbd>Space</kbd>: jump</li>
-          <li><kbd>E</kbd>: read a sign, talk, drive the car or get out · <kbd>Esc</kbd>: close</li>
-          <li><kbd>C</kbd>: chase camera · <kbd>R</kbd>: back to start · <kbd>M</kbd>: mute · <kbd>Q</kbd>: graphics</li>
-          <li><kbd>N</kbd>: day / dusk / night · <kbd>P</kbd>: photo mode · <kbd>`</kbd>: terminal</li>
-          <li>Phone: touch and drag anywhere to walk (past the ring to run), tap to interact.</li>
+          <li class="kb-only"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows: walk · <kbd>Shift</kbd>: run · <kbd>Space</kbd>: jump</li>
+          <li class="kb-only"><kbd>E</kbd>: read a sign, talk, drive the car or get out · <kbd>Esc</kbd>: close</li>
+          <li class="kb-only"><kbd>C</kbd>: chase camera · <kbd>R</kbd>: back to start · <kbd>M</kbd>: mute · <kbd>Q</kbd>: graphics</li>
+          <li class="kb-only"><kbd>N</kbd>: day / dusk / night · <kbd>P</kbd>: photo mode · <kbd>`</kbd>: terminal · <kbd>F</kbd>: whistle for the fox</li>
+          <li class="touch-only">Touch and drag anywhere to walk (past the ring to run).</li>
+          <li class="touch-only">Tap the round ⤒ button to jump, and tap the pop-up button to read a sign, talk, drive or get out.</li>
+          <li class="touch-only">Tap 🐾 to whistle for the fox. The buttons above change the camera, sky, weather and graphics.</li>
         </ul>
       </div>
     </div>
